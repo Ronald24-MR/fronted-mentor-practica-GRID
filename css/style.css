@@ -1,0 +1,198 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+}
+
+:root{
+    --moderate-violet: hsl(263, 55%, 52%);
+    --very-dark-grayish-blue: hsl(217, 19%, 35%);
+    --very-dark-blackish-blue: hsl(219, 29%, 14%);
+    --white: hsl(0, 0%, 100%);
+    --light-gray: hsl(0, 0%, 81%);
+    --light-grayish-blue: hsl(210, 46%, 95%);
+    --font-family: 'Barlow Semi Condensed', sans-serif;
+    /* Note for text colors:
+
+    1. "Verified Graduate" has the same color as the person's name with 50% opacity
+    2. Review paragraphs inside the quotations have the same color as well, but are at 70% opacity */
+}
+
+body{
+    background-color: var(--light-grayish-blue);
+    display: flex;
+    min-height: 100vh;
+}
+
+.container{
+   width: 85%;
+   margin: 50px auto;
+   display: grid;
+   grid-template-columns: 1fr;
+   grid-template-rows: repeat(5,auto);
+   grid-template-areas: 
+   "card1"
+   "card2"
+   "card3"
+   "card4"
+   "card5";
+   gap: 20px;
+}
+
+.card{
+   border-radius: 8px;
+   display: grid;
+   padding: 25px;
+   gap: 15px;
+   display: grid;
+   grid-template-columns: repeat(6,auto);
+   grid-template-rows: repeat(3,minmax(auto,auto));
+}
+
+.card__figure{
+    grid-column: span 2;
+    grid-row: span 1;
+}
+ 
+.card__header__text{
+    grid-column: 2/6;
+    grid-row: span 1;
+}
+
+.card__paragrahp1{
+    grid-column: span 7;
+    grid-row: span 3;
+}
+
+.card__paragrahp2{
+    grid-column: span 7;
+    grid-row: span 4;
+}
+
+ .card__img{
+    width: 35px;
+    border-radius: 50%;
+    border: 1px solid var(--white);
+ }
+ 
+ .card__name{
+    color: var(--white);
+    font-size: 13px;
+ }
+
+ .card__verified{
+  opacity: .5;
+  font-size: 11px;
+  padding-top: 3px;
+ }
+
+.card:nth-child(1){
+   background-color: var(--moderate-violet);
+   grid-area: card1;
+}
+
+.card:nth-child(1) .card__verified, .card:nth-child(2) .card__verified, .card:nth-child(3) .card__verified{
+    color: var(--white);
+}
+
+.card:nth-child(1) .card__paragrahp1, .card:nth-child(2) .card__paragrahp1{
+   color: var(--white);
+   font-size: 20px;
+}
+
+.card:nth-child(1) .card__paragrahp2, .card:nth-child(2) .card__paragrahp2{
+  color: var(--white);
+  opacity: .5;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.card:nth-child(2){
+   background-color: var(--very-dark-grayish-blue);
+   grid-area: card2;
+}
+
+
+.card:nth-child(3){
+    background-color: var(--white);
+    grid-area: card3;
+}
+
+
+.card:nth-child(3) .card__name, .card:nth-child(3) .card__verified{
+   color: var(--very-dark-grayish-blue);
+}
+
+.card:nth-child(3) .card__paragrahp1{
+    color: var(--very-dark-grayish-blue);
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.card:nth-child(3) .card__paragrahp2{
+    color: var(--very-dark-grayish-blue);
+    font-size: 14px;
+    line-height: 1.5;
+    opacity: .6;
+}
+
+.card:nth-child(4){
+  background-color: var(--very-dark-blackish-blue);
+  grid-area: card4;
+}
+
+.card:nth-child(4) .card__verified{
+    color: var(--white);
+    opacity: .5;
+}
+
+.card:nth-child(4) .card__paragrahp1{
+   color: var(--white);
+   font-size: 20px;
+}
+
+.card:nth-child(4) .card__paragrahp2{
+  color: var(--white);
+  opacity: .5;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.card:nth-child(5){
+ background-color: var(--white);
+ grid-area: card5;
+}
+
+.card:nth-child(5) .card__name, .card:nth-child(5) .card__verified{
+  color: var(--very-dark-blackish-blue);
+}
+
+.card:nth-child(5) .card__paragrahp1{
+   color: var(--very-dark-grayish-blue);
+   font-weight: 600;
+   font-size: 20px;
+}
+
+.card:nth-child(5) .card__paragrahp2{
+   color: var(--very-dark-grayish-blue);
+   opacity: .6;
+   font-size: 14px;
+   line-height: 1.5;
+}
+
+
+@media screen and (min-width:1024px) {
+    .container{
+    width: 85%;
+   margin: auto;
+   display: grid;
+   grid-template-columns: repeat(4,1fr);
+   grid-template-rows: repeat(2,auto);
+   grid-template-areas: 
+   "card1 card1 card2 card5"
+   "card3 card4 card4 card5"
+   ;
+   gap: 20px;
+    }
+}
